@@ -11,9 +11,10 @@
 @interface XEngineSDK : NSObject
 
 @property (strong, nonatomic) NSMutableArray *moduleClassNames;
-
+@property (strong, nonatomic) NSDictionary *launchOptions;
+@property (strong, nonatomic) UIApplication *application;
 + (instancetype)sharedInstance;
-- (void) registerApp:(NSString *)appId andAppSecret:(NSString *)secret serverUrl:(NSString *)server;
+- (void) registerWithApplication:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 //- (void)updateMicroApp;
 @end
 

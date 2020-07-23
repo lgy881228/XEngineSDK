@@ -3,7 +3,7 @@
 
 target 'XEngineApp' do
   # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+  #use_frameworks!
   pod 'LSRFramework'
   pod 'JSONModel'
   pod 'SSZipArchive'
@@ -11,5 +11,10 @@ target 'XEngineApp' do
   # Pods for UIModule
   pod 'XEngineSDK', :path =>'../'
   # Pods for XEngineApp
-
+ # Pods for TimesHomeSDKDemo
+#	pod 'IMSLaunchKit', :path => 'TimesHomeSDK/IMSLaunchKit.podspec'
+#	pod 'IMSInitCode', :path => 'TimesHomeSDK/IMSInitCode.podspec'
+#    	pod 'IMSGlueCode', :path => 'TimesHomeSDK/IMSGlueCode.podspec'
+#    	pod 'XLHContainerFramework', :path => 'TimesHomeSDK/XLHContainerFramework.podspec'
+#	pod 'XGHomeSDK', :path => 'TimesHomeSDK/XGHomeSDK.podspec'
 end

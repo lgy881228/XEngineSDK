@@ -10,11 +10,9 @@
 #import "XEngineRequest+DownLoadZip.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "WebViewPool.h"
-
+#import "XEngineConfigModel.h"
 @interface XEngineSDK ()
-@property (copy, nonatomic) NSString *appId;
-@property (copy, nonatomic) NSString *secret;
-@property (copy, nonatomic) NSString *server;
+@property (nonatomic, strong) XEngineConfigModel *configModel;
 
 @end
 @implementation XEngineSDK
@@ -76,13 +74,35 @@
 
 
 
-- (void) registerApp:(NSString *)appId andAppSecret:(NSString *)secret serverUrl:(NSString *)server
+- (void) registerWithApplication:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     XEngineSDK *xEngineSDK = [XEngineSDK sharedInstance];
+    
     xEngineSDK.moduleClassNames = [Unity getModuleClassName];
-    xEngineSDK.appId = appId;
-    xEngineSDK.secret = appId;
-    xEngineSDK.server = appId;
+    xEngineSDK.launchOptions = launchOptions;
+    xEngineSDK.application = application;
+    NSString *configPath = [[NSBundle mainBundle] pathForResource:@"xengine_config"ofType:@"json"];
+    if (!configPath)
+    {
+        [[Unity topViewController] showAlertWithTitle:@"" message:@"xengine_config 配置文件不存在" sureTitle:@"确定" sureHandler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+    }
+    NSData *JSONData = [NSData dataWithContentsOfFile:configPath];
+           NSDictionary*dic;
+           if (JSONData)
+           {
+               dic = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingAllowFragments error:nil];
+               self.configModel = [[XEngineConfigModel alloc] initWithDictionary:dic error:nil];
+               NSLog(@"1234567890 ====  %@",dic);
+             
+           }else
+           {
+               [[Unity topViewController] showAlertWithTitle:@"" message:@"json格式不正确" sureTitle:@"确定" sureHandler:^(UIAlertAction * _Nonnull action) {
+                   
+               }];
+           }
+    
 //    [xEngineSDK updateMicroApp];
     [xEngineSDK allocMicroApps];
     [WebViewPool SingleWebViewPool];
@@ -115,7 +135,7 @@
     }
     
     NSDictionary *param = @{
-        @"key": [Unity getAppKey:self.secret MicroApp:self.appId],
+        @"key": [Unity getAppKey:self.configModel.appSecret MicroApp:self.configModel.appId],
         @"version":version
         
     };

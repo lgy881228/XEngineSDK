@@ -7,8 +7,8 @@
 //
 
 #import "WebViewPool.h"
-#import "DWKWebView.h"
-#import "JSBUtil.h"
+#import "XEngineWebView.h"
+#import "XEngineJSBUtil.h"
 #import "PoolingList.h"
 #import "Stack.h"
 #import <pthread.h>
@@ -17,6 +17,7 @@
 @interface WebViewPool ()
 @property (nonatomic, strong) dispatch_queue_t myQueue;
 @property (nonatomic, strong) Stack* stack;
+@property (nonatomic, strong) NSMutableArray* modules;
 @property (nonatomic, strong) PoolingList* cirleList;
 @property (nonatomic, assign) pthread_mutex_t mutex;
 @end
@@ -30,16 +31,28 @@
     @synchronized (self) {
         if(!_instance) {
             _instance = [[WebViewPool alloc] init];
+          
         }
         return _instance;
     }
 }
+- (void) initMoudles{
+    XEngineSDK *xengine = [XEngineSDK sharedInstance];
 
+      for (NSString *moduleName in xengine.moduleClassNames)
+      {
+         xengine__module_BaseModule *moduleClass = [[NSClassFromString(moduleName) alloc] init];
+          [self.modules addObject:moduleClass];
+            NSLog(@"%@",moduleClass.moduleId);
+      }
+}
 - (instancetype)init{
     _cirleList =[[PoolingList alloc] init];
     _stack = [[Stack alloc] init];
+    self.modules = [NSMutableArray array];
+    [self initMoudles];
     pthread_mutex_init(&_mutex, NULL);
-
+  
     _myQueue = dispatch_queue_create("myQueue", DISPATCH_QUEUE_SERIAL);
      dispatch_sync(_myQueue,^{
             [self expandWebViewsBy:3];
@@ -47,37 +60,17 @@
     return self;
 }
 
--(void) expandWebViewsBy:(int) size{
-    for (int i =0 ; i<size; i++) {
-        DWKWebView* webView = [[DWKWebView alloc] init];
+-(void) expandWebViewsBy:(int) size
+{
+    for (int i =0 ; i<size; i++)
+    {
+        XEngineWebView* webView = [[XEngineWebView alloc] init];
         webView.index = i;
-        XEngineSDK *xengine = [XEngineSDK sharedInstance];
-        for (NSString *moduleName in xengine.moduleClassNames)
+        for (xengine__module_BaseModule *baseModule in self.modules)
         {
-            xengine__module_BaseModule *moduleClass = [[NSClassFromString(moduleName) alloc] init];
-            NSLog(@"%@",moduleClass.moduleId);
-            
-            [webView addJavascriptObject:moduleClass namespace:moduleClass.moduleId];
+             [webView addJavascriptObject:baseModule namespace:baseModule.moduleId];
         }
        
-//           dic = [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingAllowFragments error:nil];
-////           NSLog(@"1234567890 ====  %@",dic);
-//           for (NSDictionary *obj in dic[@"Modules"]) {
-//
-//               NSString *value = obj[@"ModuleName"];
-//               NSString *key = obj[@"nameSpace"];
-//               id obj = [[NSClassFromString(value) alloc] init];
-//               [webView addJavascriptObject:obj namespace:key];
-//           }
-//       }
-        
-        
-//        [moduleClass registModules:webView];
-        
-//        [webView addJavascriptObject:[[NSClassFromString(@"") alloc] init] namespace:@"_ui"];
-//       [webView addJavascriptObject:NSStringFromClass(dic[@"value"]) namespace:dic[@"key"]];
-        [webView customJavascriptDialogLabelTitles:@{@"alertTitle":@"Notification",@"alertBtn":@"OK"}];
-
         [_cirleList add:webView];
     }
 }

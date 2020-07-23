@@ -9,7 +9,7 @@
 #ifndef XEngine_h
 #define XEngine_h
 
-#import "dsbridge.h"
+#import "XEngineBridge.h"
 #import <AFNetworking/AFNetworking.h>
 #import <LSRFramework/LSRFramework.h>
 #import "XEngineSDK.h"

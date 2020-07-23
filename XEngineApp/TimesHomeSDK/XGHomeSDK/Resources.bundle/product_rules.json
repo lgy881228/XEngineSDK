@@ -1,0 +1,1032 @@
+{
+  "product_categories": [
+    {
+      "category_id": "curtain",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "4",
+          "property_id": "CurtainOperation",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "open"
+            },
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "smart_switch",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "PowerSwitch_1",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            }
+          ]
+        },
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "PowerSwitch_2",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "smoke_sensor",
+      "rules": [
+        {
+          "show_type": "text",
+          "rule_type": "minor",
+          "type": "3",
+          "property_id": "SmokeSensorState",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "=",
+              "desc_state": "正常",
+              "desc_color": "#999999",
+              "value": "0"
+            },
+            {
+              "compare": "=",
+              "desc_state": "检测到烟雾",
+              "desc_color": "#ff9900",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "LowElectricityAlarm",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "high_electricity"
+            },
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "low_electricity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "socket",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "PowerSwitch",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "smart_light",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "LightSwitch",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "smart_lock",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "4",
+          "property_id": "LockState",
+          "need_control": true,
+          "states": [
+            {
+              "icon": "close",
+              "value": [
+                "false",
+                "0",
+                "2"
+              ]
+            },
+            {
+              "icon": "open",
+              "value": [
+                "1",
+                "true"
+              ]
+            }
+          ]
+        },
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "4",
+          "property_id": "BatteryPercentage",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "<",
+              "icon": "low_electricity",
+              "value": "10"
+            },
+            {
+              "compare": ">=",
+              "icon": "high_electricity",
+              "value": "10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "infrared_sensor",
+      "rules": [
+        {
+          "show_type": "text",
+          "rule_type": "minor",
+          "type": "1",
+          "property_id": "MotionAlarmState",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "=",
+              "desc_state": "有人",
+              "desc_color": "#ff9900",
+              "value": "1"
+            },
+            {
+              "compare": "=",
+              "desc_state": "无人",
+              "desc_color": "#999999",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "5",
+          "property_id": "BatteryPercentage",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "<",
+              "icon": "low_electricity",
+              "value": "10"
+            },
+            {
+              "compare": ">=",
+              "icon": "high_electricity",
+              "value": "10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "infrared_sensor",
+      "rules": [
+        {
+          "show_type": "text",
+          "rule_type": "minor",
+          "type": "1",
+          "property_id": "MotionAlarmState",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "=",
+              "desc_state": "有人经过",
+              "desc_color": "#ff9900",
+              "value": "1"
+            },
+            {
+              "compare": "=",
+              "desc_state": "无人经过",
+              "desc_color": "#999999",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "5",
+          "property_id": "BatteryPercentage",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "<",
+              "icon": "low_electricity",
+              "value": "10"
+            },
+            {
+              "compare": ">=",
+              "icon": "high_electricity",
+              "value": "10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "smart_switch",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "PowerSwitch_1",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            }
+          ]
+        },
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "PowerSwitch_2",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            }
+          ]
+        },
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "PowerSwitch_3",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "socket",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "PowerSwitch",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "air_purifier",
+      "rules": [
+        {
+          "show_type": "value",
+          "rule_type": "minor",
+          "type": "4",
+          "property_id": "PM25",
+          "need_control": false,
+          "states": []
+        },
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "PowerSwitch",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "socket",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "PowerSwitch",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "door_sensor",
+      "rules": [
+        {
+          "show_type": "text",
+          "rule_type": "minor",
+          "type": "1",
+          "property_id": "ContactState",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "=",
+              "desc_state": "关闭",
+              "desc_color": "#ff9900",
+              "value": "1"
+            },
+            {
+              "compare": "=",
+              "desc_state": "打开",
+              "desc_color": "#999999",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "5",
+          "property_id": "BatteryPercentage",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "<",
+              "icon": "low_electricity",
+              "value": "10"
+            },
+            {
+              "compare": ">=",
+              "icon": "high_electricity",
+              "value": "10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "air_detector",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "5",
+          "property_id": "BatteryPercentage",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "<",
+              "icon": "low_electricity",
+              "value": "10"
+            },
+            {
+              "compare": ">=",
+              "icon": "high_electricity",
+              "value": "10"
+            }
+          ]
+        },
+        {
+          "show_type": "value",
+          "rule_type": "minor",
+          "type": "4",
+          "property_id": "PM25",
+          "need_control": false,
+          "states": []
+        }
+      ]
+    },
+    {
+      "category_id": "gas_sensor",
+      "rules": [
+        {
+          "show_type": "text",
+          "rule_type": "minor",
+          "type": "4",
+          "property_id": "GasSensorState",
+          "need_control": false,
+          "states": [
+            {
+              "color": "#999999",
+              "value": [
+                "0",
+                "false"
+              ]
+            },
+            {
+              "color": "#ff9900",
+              "value": [
+                "1",
+                "true"
+              ]
+            }
+          ]
+        },
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "5",
+          "property_id": "BatteryPercentage",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "<",
+              "icon": "low_electricity",
+              "value": "10"
+            },
+            {
+              "compare": ">=",
+              "icon": "high_electricity",
+              "value": "10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "smart_switch",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "PowerSwitch_1",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "socket",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "PowerSwitch",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "door_sensor",
+      "rules": [
+        {
+          "show_type": "text",
+          "rule_type": "minor",
+          "type": "1",
+          "property_id": "ContactState",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "=",
+              "desc_state": "关闭",
+              "desc_color": "#999999",
+              "value": "0"
+            },
+            {
+              "compare": "=",
+              "desc_state": "打开",
+              "desc_color": "#ff9900",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "5",
+          "property_id": "BatteryPercentage",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "<",
+              "icon": "low_electricity",
+              "value": "10"
+            },
+            {
+              "compare": ">=",
+              "icon": "high_electricity",
+              "value": "10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "water_sensor",
+      "rules": [
+        {
+          "show_type": "text",
+          "rule_type": "minor",
+          "type": "4",
+          "property_id": "WaterSensorState",
+          "need_control": false,
+          "states": [
+            {
+              "color": "#999999",
+              "value": [
+                "0",
+                "false"
+              ]
+            },
+            {
+              "color": "#ff9900",
+              "value": [
+                "1",
+                "true"
+              ]
+            }
+          ]
+        },
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "5",
+          "property_id": "BatteryPercentage",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "<",
+              "icon": "low_electricity",
+              "value": "10"
+            },
+            {
+              "compare": ">=",
+              "icon": "high_electricity",
+              "value": "10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "air_condition",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "PowerSwitch",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "smoke_sensor",
+      "rules": [
+        {
+          "show_type": "text",
+          "rule_type": "minor",
+          "type": "4",
+          "property_id": "SmokeSensorState",
+          "need_control": false,
+          "states": [
+            {
+              "color": "#999999",
+              "value": [
+                "0",
+                "false"
+              ]
+            },
+            {
+              "color": "#ff9900",
+              "value": [
+                "1",
+                "true"
+              ]
+            }
+          ]
+        },
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "5",
+          "property_id": "BatteryPercentage",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "<",
+              "icon": "low_electricity",
+              "value": "10"
+            },
+            {
+              "compare": ">=",
+              "icon": "high_electricity",
+              "value": "10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "air_detector",
+      "rules": [
+        {
+          "show_type": "value",
+          "rule_type": "minor",
+          "type": "4",
+          "property_id": "PM25",
+          "need_control": false,
+          "states": []
+        }
+      ]
+    },
+    {
+      "category_id": "water_sensor",
+      "rules": [
+        {
+          "show_type": "text",
+          "rule_type": "minor",
+          "type": "4",
+          "property_id": "WaterSensorState",
+          "need_control": false,
+          "states": [
+            {
+              "color": "#999999",
+              "value": [
+                "0",
+                "false"
+              ]
+            },
+            {
+              "color": "#ff9900",
+              "value": [
+                "1",
+                "true"
+              ]
+            }
+          ]
+        },
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "5",
+          "property_id": "BatteryPercentage",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "<",
+              "icon": "low_electricity",
+              "value": "10"
+            },
+            {
+              "compare": ">=",
+              "icon": "high_electricity",
+              "value": "10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "infrared_sensor",
+      "rules": [
+        {
+          "show_type": "text",
+          "rule_type": "minor",
+          "type": "1",
+          "property_id": "MotionAlarmState",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "=",
+              "desc_state": "有人",
+              "desc_color": "#ff9900",
+              "value": "1"
+            },
+            {
+              "compare": "=",
+              "desc_state": "无人",
+              "desc_color": "#999999",
+              "value": "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "air_sensor",
+      "rules": [
+        {
+          "show_type": "value",
+          "rule_type": "minor",
+          "type": "4",
+          "property_id": "PM25",
+          "need_control": false,
+          "states": []
+        }
+      ]
+    },
+    {
+      "category_id": "floor_heating_controller",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "PowerSwitch",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            },
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "fan_coil_controller",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "PowerSwitch",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            },
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "gas_sensor",
+      "rules": [
+        {
+          "show_type": "text",
+          "rule_type": "minor",
+          "type": "4",
+          "property_id": "GasSensorState",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "=",
+              "desc_state": "正常",
+              "desc_color": "#999999",
+              "value": "0"
+            },
+            {
+              "compare": "=",
+              "desc_state": "燃气泄漏",
+              "desc_color": "#ff9900",
+              "value": "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "smart_light",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "1",
+          "property_id": "LightSwitch",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "1",
+              "icon_tag": "open"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "door_sensor",
+      "rules": [
+        {
+          "show_type": "text",
+          "rule_type": "minor",
+          "type": "1",
+          "property_id": "ContactState",
+          "need_control": false,
+          "states": [
+            {
+              "compare": "=",
+              "desc_state": "打开",
+              "desc_color": "#ff9900",
+              "value": "1"
+            },
+            {
+              "compare": "=",
+              "desc_state": "关闭",
+              "desc_color": "#999999",
+              "value": "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "smart_lock",
+      "rules": [
+        {
+          "show_type": "icon",
+          "rule_type": "major",
+          "type": "4",
+          "property_id": "LockState",
+          "need_control": true,
+          "states": [
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "close"
+            },
+            {
+              "compare": "=",
+              "value": "0",
+              "icon_tag": "open"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": "1.0"
+}

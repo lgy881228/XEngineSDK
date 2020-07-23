@@ -1,0 +1,84 @@
+/* 
+  Localizable.strings
+  XHomeUI
+
+  Created by Eric on 2019/3/15.
+  Copyright © 2019 XLink. All rights reserved.
+*/
+
+//#pragma mark - Toast 弹框
+
+///账号错误
+"text_to_accountError"                        = "账号错误";
+///请稍等
+"text_to_pleaseWait"                          = "请稍等";
+
+//#pragma mark - Device 设备
+
+//#pragma mark - Tips 提示
+
+///其他方式登录
+"text_tips_login_other_way"                   = "其他方式登录";
+///用户协议和隐私协议
+"text_tips_user_and_privacy_agreement"        = "用户协议和隐私协议";
+///添加设备/配网
+"text_tips_add_device"                        = "1.请将网关通电并用网线将网关连接到路由器；\n2.确保手机与网关处于同一路由器WiFi环境下；\n3.通电并联网后，三个指示灯将亮起，第三指示灯闪烁则进入配网状态。";
+///搜索到以下设备
+"text_tips_searched_follow_devices"           = "搜索到以下设备";
+///未搜索到设备
+"text_tips_device_not_found"                  = "未搜索到设备";
+///请选择设备所属房间
+"text_tips_ple_select_room_device_bel"        = "请选择设备所属房间";
+///您已成功添加网关
+"text_tips_you_have_succ_added_gateway"       = "您已成功添加网关";
+///继续添加设备，开启智能生活
+"text_tips_conti_add_device_smart_life"       = "继续添加设备，开启智能生活";
+
+//#pragma mark - ViewControllerTitle 控制器标题
+
+///登录
+"text_vct_login"                              = "登录";
+///注册
+"text_vct_register"                           = "注册";
+///短信登录
+"text_vct_sms_login"                          = "短信登录";
+///重置密码
+"text_vct_reset_password"                     = "重置密码";
+
+//#pragma mark - ButtonTitle 按钮标题
+
+///发送验证码
+"text_btn_sendVerfyCode"                      = "发送验证码";
+///提交
+"text_btn_submit"                             = "提交";
+///登录
+"text_btn_login"                              = "登录";
+///短信验证登录
+"text_btn_sms_verfy_login"                    = "短信验证登录";
+///忘记密码
+"text_btn_forget_password"                    = "忘记密码？";
+///注册用户
+"text_btn_register"                           = "注册用户";
+///下一步
+"text_btn_next_step"                          = "下一步";
+///添加设备
+"text_btn_add_device"                         = "添加设备";
+///重试
+"text_btn_retry"                              = "重试";
+///跳过
+"text_btn_jump_over"                          = "跳过";
+///完成
+"text_btn_complete"                           = "完成";
+
+//#pragma mark - Placeholder 输入框占位字符
+
+///请输入手机号
+"text_ph_please_enter_phone"                  = "请输入手机号";
+///请输入密码
+"text_ph_please_enter_password"               = "请输入密码";
+///请输入新密码
+"text_ph_please_enter_new_password"           = "请输入6-16新密码";
+///再次输入新密码
+"text_ph_please_enter_new_password_again"     = "再次输入新密码";
+///请输入验证码
+"text_ph_please_enter_veryf_code"             = "请输入验证码";

@@ -26,7 +26,7 @@
 @interface RecyleWebViewController ()
 @property (nonatomic, strong) NSString *fileUrl;
 @property (nonatomic, strong) WebViewPool *mgr;
-@property (nonatomic, strong) DWKWebView * webview;
+@property (nonatomic, strong) XEngineWebView * webview;
 @property (nonatomic, assign) int index;
 @property (nonatomic, readwrite) BOOL statusBarHidden;
 @end
