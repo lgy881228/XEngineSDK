@@ -22,57 +22,21 @@
     static XEngineSDK *__sharedInstance = nil;
     static dispatch_once_t dispatchToken;
     dispatch_once(&dispatchToken, ^{
-        __sharedInstance = [[super allocWithZone:nil] init];
+        __sharedInstance = [[super allocWithZone:NULL] init];
     });
     return __sharedInstance;
 }
 
-- (instancetype)init
-{
-    if (self = [super init])
-    {
-        //
-    }
-    return self;
-}
+
 
 + (instancetype)allocWithZone:(struct _NSZone *)zone
 {
-    if ([self class] == [XEngineSDK class])
-    {
-        return [[self class] sharedInstance];
-    }
-    else
-    {
-        return [super allocWithZone:zone];
-    }
+    return [self  sharedInstance];
 }
 
-+ (instancetype)alloc
-{
-    if ([self class] == [XEngineSDK class])
-    {
-        return [[self class] sharedInstance];
-    }
-    else
-    {
-        return [super alloc];
-    }
+- (id)copyWithZone:(nullable NSZone *)zone{
+    return self;
 }
-
-+ (instancetype)new
-{
-    if ([self class] == [XEngineSDK class])
-    {
-        return [[self class] sharedInstance];
-    }
-    else
-    {
-        return [super new];
-    }
-}
-
-
 
 - (void) registerWithApplication:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -82,11 +46,14 @@
     xEngineSDK.launchOptions = launchOptions;
     xEngineSDK.application = application;
     NSString *configPath = [[NSBundle mainBundle] pathForResource:@"xengine_config"ofType:@"json"];
+    [WebViewPool SingleWebViewPool];
+    [xEngineSDK allocMicroApps];
     if (!configPath)
     {
         [[Unity topViewController] showAlertWithTitle:@"" message:@"xengine_config 配置文件不存在" sureTitle:@"确定" sureHandler:^(UIAlertAction * _Nonnull action) {
             
         }];
+        return;
     }
     NSData *JSONData = [NSData dataWithContentsOfFile:configPath];
            NSDictionary*dic;
@@ -101,11 +68,13 @@
                [[Unity topViewController] showAlertWithTitle:@"" message:@"json格式不正确" sureTitle:@"确定" sureHandler:^(UIAlertAction * _Nonnull action) {
                    
                }];
+               
+               return;
            }
     
-//    [xEngineSDK updateMicroApp];
-    [xEngineSDK allocMicroApps];
-    [WebViewPool SingleWebViewPool];
+    [xEngineSDK updateMicroApp];
+    
+    
     
     
     
