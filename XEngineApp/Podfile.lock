@@ -15,24 +15,36 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - JSONModel (1.8.0)
-  - LSRFramework (1.1.1):
+  - LSRFramework (1.1.3):
     - Masonry
     - MBProgressHUD
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
   - SSZipArchive (2.2.3)
+  - XEngineNavigationModule (1.0.0):
+    - LSRFramework
+    - XEngineSDK
+  - XEngineNetworkModule (1.0.0):
+    - LSRFramework
+    - XEngineSDK
   - XEngineSDK (1.0.1):
     - AFNetworking
     - JSONModel
     - LSRFramework (~> 1.1.1)
     - SSZipArchive
+  - XEngineTabBarControllerModule (1.0.0):
+    - LSRFramework
+    - XEngineSDK
 
 DEPENDENCIES:
   - AFNetworking
   - JSONModel
   - LSRFramework
   - SSZipArchive
+  - XEngineNavigationModule (from `../`)
+  - XEngineNetworkModule (from `../`)
   - XEngineSDK (from `../`)
+  - XEngineTabBarControllerModule (from `../`)
 
 SPEC REPOS:
   trunk:
@@ -44,18 +56,27 @@ SPEC REPOS:
     - SSZipArchive
 
 EXTERNAL SOURCES:
+  XEngineNavigationModule:
+    :path: "../"
+  XEngineNetworkModule:
+    :path: "../"
   XEngineSDK:
+    :path: "../"
+  XEngineTabBarControllerModule:
     :path: "../"
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
-  LSRFramework: 05785aa81ae5c6d618b31e84729057e32c8c45e4
+  LSRFramework: eb208c42f7d86680f0bca5a493c91d84d1e9652d
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
+  XEngineNavigationModule: b25ea0de408c352b8d98bf174cbc460405bbcc55
+  XEngineNetworkModule: 922b1d7f72274e8d6afd91a17a7017108db9cbce
   XEngineSDK: 37eb6aa2ea859df0de18ab1b210d7410f80323f1
+  XEngineTabBarControllerModule: 224e401651dc75550912d2c4b8f697cbaceb86d6
 
-PODFILE CHECKSUM: 5a58820e4bf332658e6b7842853267cd203e28ca
+PODFILE CHECKSUM: 0061d94ceba3db7ade1ac52108c0d031de3befe3
 
 COCOAPODS: 1.9.3

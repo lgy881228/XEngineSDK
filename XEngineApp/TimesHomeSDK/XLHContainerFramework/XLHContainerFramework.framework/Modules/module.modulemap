@@ -1,6 +1,0 @@
-framework module XLHContainerFramework {
-  umbrella header "XLHContainerFramework.h"
-
-  export *
-  module * { export * }
-}

@@ -1,6 +1,0 @@
-framework module XGHomeSDK {
-  umbrella header "XGHomeSDK.h"
-
-  export *
-  module * { export * }
-}
