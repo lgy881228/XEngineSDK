@@ -50,7 +50,7 @@
     [xEngineSDK allocMicroApps];
     if (!configPath)
     {
-        [[Unity topViewController] showAlertWithTitle:@"" message:@"xengine_config 配置文件不存在" sureTitle:@"确定" sureHandler:^(UIAlertAction * _Nonnull action) {
+        [[Unity sharedInstance].getCurrentVC showAlertWithTitle:@"" message:@"xengine_config 配置文件不存在" sureTitle:@"确定" sureHandler:^(UIAlertAction * _Nonnull action) {
             
         }];
         return;
@@ -65,14 +65,14 @@
              
            }else
            {
-               [[Unity topViewController] showAlertWithTitle:@"" message:@"json格式不正确" sureTitle:@"确定" sureHandler:^(UIAlertAction * _Nonnull action) {
+               [[Unity sharedInstance].getCurrentVC showAlertWithTitle:@"" message:@"json格式不正确" sureTitle:@"确定" sureHandler:^(UIAlertAction * _Nonnull action) {
                    
                }];
                
                return;
            }
     
-    [xEngineSDK updateMicroApp];
+//    [xEngineSDK updateMicroApp];
     
     
     
@@ -82,7 +82,7 @@
 
 
 
-- (void)updateMicroApp
+- (void)loadMicroApp
 {
   
     // 需要添加规则

@@ -26,7 +26,7 @@
 #import "NSString+Extras.h"
 #import "RecyleWebViewController.h"
 #import "JSONToDictionary.h"
-
+#import "UIColor+HexString.h"
 
 // Module
 #import "MBProgressHUD.h"

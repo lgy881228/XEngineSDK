@@ -11,7 +11,7 @@
 @implementation MBProgressHUD (Toast)
 + (MBProgressHUD *)showToastWithTitle:(NSString *)title image:(UIImage *)image time:(NSTimeInterval)time
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[Unity topView] animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[Unity sharedInstance].topView animated:YES];
     hud.animationType = MBProgressHUDAnimationFade;
     if (image)
     {

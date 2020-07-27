@@ -15,6 +15,8 @@
 @property (strong, nonatomic) UIApplication *application;
 + (instancetype)sharedInstance;
 - (void) registerWithApplication:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
-//- (void)updateMicroApp;
+
+
+- (void)loadMicroApp;
 @end
 

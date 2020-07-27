@@ -38,10 +38,10 @@
         [MBProgressHUD showToastWithTitle:title image:[UIImage imageNamed:@"thcket_success"] time:time];
     }else
     {
-        [[Unity topViewController] showLoading];
+        [[Unity sharedInstance].getCurrentVC showLoading];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                     
-            [[Unity topViewController] hideLoading];
+            [[Unity sharedInstance].getCurrentVC hideLoading];
             
         });
     }
@@ -65,10 +65,10 @@
         [MBProgressHUD showToastWithTitle:title image:[UIImage imageNamed:@"Ticket_fail"] time:time];
     }else
     {
-        [[Unity topViewController] showLoading];
+        [[Unity sharedInstance].getCurrentVC showLoading];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                     
-            [[Unity topViewController] hideLoading];
+            [[Unity sharedInstance].getCurrentVC hideLoading];
             
         });
     }
@@ -91,10 +91,10 @@
            [MBProgressHUD showToastWithTitle:title image:nil time:time];
        }else
        {
-        [[Unity topViewController] showLoading];
+        [[Unity sharedInstance].getCurrentVC showLoading];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                     
-            [[Unity topViewController] hideLoading];
+            [[Unity sharedInstance].getCurrentVC hideLoading];
             
         });
     }
@@ -102,23 +102,23 @@
 
 - (void)hiddenToast:(NSString *)jsonString complate:(XEngineCallBack)completionHandler
 {
-    [[Unity topViewController] hideLoading];
-    [self hiddenHudToast:[Unity topView]];
+    [[Unity sharedInstance].getCurrentVC hideLoading];
+    [self hiddenHudToast:[Unity sharedInstance].topView];
 }
 - (void)hiddenHudToast:(UIView *)view
 {
-    [[Unity topViewController] hideLoading];
+    [[Unity sharedInstance].getCurrentVC hideLoading];
     [MBProgressHUD hideHUDForView:view animated:YES];
 }
 
 - (void)showLoading:(NSString *)jsonString complate:(XEngineCallBack)completionHandler
 {
-    [[Unity topViewController] showLoading];
+    [[Unity sharedInstance].getCurrentVC showLoading];
 }
 
 - (void)hiddenLoading:(NSString *)jsonString complate:(XEngineCallBack)completionHandler
 {
-    [[Unity topViewController] hideLoading];
+    [[Unity sharedInstance].getCurrentVC hideLoading];
 }
 
 #pragma mark - Alert
@@ -131,14 +131,14 @@
     BOOL showCancel =[param[@"showCancel"] boolValue];
     if (showCancel)
     {
-        [[Unity topViewController] showAlertWithTitle:title message:message cancelTitle:@"取消" sureTitle:@"确定" cancelHandler:^(UIAlertAction * _Nonnull action) {
+        [[Unity sharedInstance].getCurrentVC showAlertWithTitle:title message:message cancelTitle:@"取消" sureTitle:@"确定" cancelHandler:^(UIAlertAction * _Nonnull action) {
              completionHandler(@"0",YES);
         } sureHandler:^(UIAlertAction * _Nonnull action) {
             completionHandler(@"1",YES);
         }];
     }else
     {
-        [[Unity topViewController] showAlertWithTitle:title message:message sureTitle:@"确定" sureHandler:^(UIAlertAction * _Nonnull action) {
+        [[Unity sharedInstance].getCurrentVC showAlertWithTitle:title message:message sureTitle:@"确定" sureHandler:^(UIAlertAction * _Nonnull action) {
              completionHandler(@"1",YES);
         }];
     }
@@ -161,7 +161,7 @@
         [actionHandlers addObject:handler];
     }
     
-    [[Unity topViewController] showActionSheetWithTitle:title message:message cancelTitle:@"取消" sureTitles:itemList cancelHandler:^(UIAlertAction * _Nonnull action) {
+    [[Unity sharedInstance].getCurrentVC showActionSheetWithTitle:title message:message cancelTitle:@"取消" sureTitles:itemList cancelHandler:^(UIAlertAction * _Nonnull action) {
         
     } sureHandlers:actionHandlers];
 }

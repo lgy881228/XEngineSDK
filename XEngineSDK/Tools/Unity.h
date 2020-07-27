@@ -12,9 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Unity : NSObject
 + (NSString *)getAppKey:(NSString *)appSecret MicroApp:(NSString *)microApp;
-
-+ (UIViewController *)topViewController;
-+ (UIView *)topView;
++ (Unity *)sharedInstance;
+- (UIView *)topView;
+//获取当前屏幕显示的viewcontroller
+- (UIViewController *)getCurrentVC;
 
 + (NSMutableArray *)getModuleClassName;
 @end

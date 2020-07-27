@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00364DDA24CE6D8F0057D976 /* AppDelegate+XEngineTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 00364DD824CE6D8E0057D976 /* AppDelegate+XEngineTabBar.m */; };
+		00364DDC24CE700F0057D976 /* com.zkty.xiaoqu.nav.0 in Resources */ = {isa = PBXBuildFile; fileRef = 00364DDB24CE700E0057D976 /* com.zkty.xiaoqu.nav.0 */; };
 		0062508D24C91F4F00917C09 /* __xengine__module_UIModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 0062508B24C91F4F00917C09 /* __xengine__module_UIModule.m */; };
 		0062508F24C91F6800917C09 /* com.zkty.xiaoqu.network.0 in Resources */ = {isa = PBXBuildFile; fileRef = 0062508E24C91F6800917C09 /* com.zkty.xiaoqu.network.0 */; };
 		0062509124C91F8E00917C09 /* xengine_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 0062509024C91F8D00917C09 /* xengine_config.json */; };
@@ -23,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00364DD824CE6D8E0057D976 /* AppDelegate+XEngineTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+XEngineTabBar.m"; sourceTree = "<group>"; };
+		00364DD924CE6D8E0057D976 /* AppDelegate+XEngineTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+XEngineTabBar.h"; sourceTree = "<group>"; };
+		00364DDB24CE700E0057D976 /* com.zkty.xiaoqu.nav.0 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = com.zkty.xiaoqu.nav.0; sourceTree = "<group>"; };
 		0062508B24C91F4F00917C09 /* __xengine__module_UIModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __xengine__module_UIModule.m; sourceTree = "<group>"; };
 		0062508C24C91F4F00917C09 /* __xengine__module_UIModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __xengine__module_UIModule.h; sourceTree = "<group>"; };
 		0062508E24C91F6800917C09 /* com.zkty.xiaoqu.network.0 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = com.zkty.xiaoqu.network.0; sourceTree = "<group>"; };
@@ -81,11 +86,14 @@
 			isa = PBXGroup;
 			children = (
 				0062509024C91F8D00917C09 /* xengine_config.json */,
+				00364DDB24CE700E0057D976 /* com.zkty.xiaoqu.nav.0 */,
 				0062508E24C91F6800917C09 /* com.zkty.xiaoqu.network.0 */,
 				0062508C24C91F4F00917C09 /* __xengine__module_UIModule.h */,
 				0062508B24C91F4F00917C09 /* __xengine__module_UIModule.m */,
 				00E613FE24C81DF800072B82 /* AppDelegate.h */,
 				00E613FF24C81DF800072B82 /* AppDelegate.m */,
+				00364DD924CE6D8E0057D976 /* AppDelegate+XEngineTabBar.h */,
+				00364DD824CE6D8E0057D976 /* AppDelegate+XEngineTabBar.m */,
 				00E6140424C81DF800072B82 /* ViewController.h */,
 				00E6140524C81DF800072B82 /* ViewController.m */,
 				0062509624C960E700917C09 /* EntryViewController.h */,
@@ -177,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00364DDC24CE700F0057D976 /* com.zkty.xiaoqu.nav.0 in Resources */,
 				00E6140E24C81DFA00072B82 /* LaunchScreen.storyboard in Resources */,
 				00E6140B24C81DFA00072B82 /* Assets.xcassets in Resources */,
 				0062509124C91F8E00917C09 /* xengine_config.json in Resources */,
@@ -240,6 +249,7 @@
 				0062509924C960E700917C09 /* EntryViewController.m in Sources */,
 				0062508D24C91F4F00917C09 /* __xengine__module_UIModule.m in Sources */,
 				00E6141124C81DFA00072B82 /* main.m in Sources */,
+				00364DDA24CE6D8F0057D976 /* AppDelegate+XEngineTabBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

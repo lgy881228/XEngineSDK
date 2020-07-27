@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <XEngineSDK/XEngineSDK.h>
 #import "EntryViewController.h"
+#import "AppDelegate+XEngineTabBar.h"
 @interface AppDelegate ()
 
 @end
@@ -18,12 +19,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    EntryViewController *homePageVC = [[EntryViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:homePageVC];
-       
-       
-       self.window.rootViewController = nav;
-     [[XEngineSDK sharedInstance] registerWithApplication:application didFinishLaunchingWithOptions:launchOptions];
+//    EntryViewController *homePageVC = [[EntryViewController alloc] init];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:homePageVC];
+//
+//
+//       self.window.rootViewController = nav;
+//     [[XEngineSDK sharedInstance] registerWithApplication:application didFinishLaunchingWithOptions:launchOptions];
+    [[XEngineSDK sharedInstance] registerWithApplication:application didFinishLaunchingWithOptions:launchOptions];
+    [self useXEngineTabBar];
+    
     return YES;
 }
 

@@ -10,10 +10,10 @@
 @implementation __xengine__module_NavigationModule
 - (NSString *)moduleId
 {
-    return @"";
+    return @"_navigator";
 }
 
-- (void)hhh:(NSString *)jsonString complate:(XEngineCallBack)completionHandler
+- (void)gotohome:(NSString *)jsonString complate:(XEngineCallBack)completionHandler
 {
     NSDictionary *param = [JSONToDictionary toDictionary:jsonString];
     

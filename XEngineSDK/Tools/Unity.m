@@ -12,6 +12,27 @@
 #import <LSRFramework/LSRFramework.h>
 #import <objc/runtime.h>
 @implementation Unity
+
++ (instancetype)sharedInstance
+{
+    static Unity *__sharedInstance = nil;
+    static dispatch_once_t dispatchToken;
+    dispatch_once(&dispatchToken, ^{
+        __sharedInstance = [[super allocWithZone:NULL] init];
+    });
+    return __sharedInstance;
+}
+
+
+
++ (instancetype)allocWithZone:(struct _NSZone *)zone
+{
+    return [self  sharedInstance];
+}
+
+- (id)copyWithZone:(nullable NSZone *)zone{
+    return self;
+}
 + (NSString *)getAppKey:(NSString *)appSecret MicroApp:(NSString *)microApp
 {
     
@@ -20,51 +41,43 @@
     return [key md5HexDigest];
 }
 
-
-+ (UIViewController *)rootViewController
+//获取当前屏幕显示的viewcontroller
+- (UIViewController *)getCurrentVC
 {
-    return [UIApplication sharedApplication].delegate.window.rootViewController;
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    UIViewController *currentVC = [self getCurrentVCFrom:rootViewController];
+    
+    return currentVC;
 }
 
-+ (UIViewController *)topViewController // topViewController
+- (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVC
 {
-    UIViewController *topViewController = nil;
-    if (self.rootViewController)
-    {
-        if ([self.rootViewController isKindOfClass:TabBarController.class])
-        {
-            TabBarController *tabBarController = (TabBarController *)self.rootViewController;
-            topViewController = tabBarController.selectedViewController;
-            
-            if ([topViewController isKindOfClass:UINavigationController.class])
-            {
-                topViewController = ((UINavigationController *)topViewController).topViewController;
-            }
-        }
-        else if ([self.rootViewController isKindOfClass:UINavigationController.class])
-        {
-            UINavigationController *navigationController = (UINavigationController *)self.rootViewController;
-            topViewController = navigationController.topViewController;
-        }
-        else
-        {
-            topViewController = self.rootViewController;
-        }
+    UIViewController *currentVC;
+    
+    if ([rootVC presentedViewController]) {
+        // 视图是被presented出来的
+        rootVC = [rootVC presentedViewController];
     }
-    return topViewController;
-    //    if (topViewController)
-    //    {
-    //        return [self checkTopViewController:topViewController];
-    //    }
-    //    else
-    //    {
-    //        return nil;
-    //    }
+
+    if ([rootVC isKindOfClass:[UITabBarController class]]) {
+        // 根视图为UITabBarController
+        currentVC = [self getCurrentVCFrom:[(UITabBarController *)rootVC selectedViewController]];
+    } else if ([rootVC isKindOfClass:[UINavigationController class]]){
+        // 根视图为UINavigationController
+        currentVC = [self getCurrentVCFrom:[(UINavigationController *)rootVC visibleViewController]];
+    } else {
+        // 根视图为非导航类
+        currentVC = rootVC;
+    }
+    
+    return currentVC;
 }
 
-+ (UIView *)topView
+
+- (UIView *)topView
 {
-    UIViewController *vc = [self topViewController];
+    UIViewController *vc = [self getCurrentVC];
     UIView *currentView = vc.view;
     return currentView;;
 }
