@@ -13,7 +13,7 @@
     return @"_navigator";
 }
 
-- (void)gotohome:(NSString *)jsonString complate:(XEngineCallBack)completionHandler
+- (void)gotoHome:(NSString *)jsonString complate:(XEngineCallBack)completionHandler
 {
     NSDictionary *param = [JSONToDictionary toDictionary:jsonString];
     

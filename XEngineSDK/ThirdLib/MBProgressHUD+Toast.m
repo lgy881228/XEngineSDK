@@ -22,7 +22,8 @@
         hud.mode = MBProgressHUDModeText;
     }
     hud.label.text = title;
-    hud.minShowTime = time;
+    [hud hideAnimated:YES afterDelay:time];
+//    hud.minShowTime = time;
     return hud;
 }
 @end

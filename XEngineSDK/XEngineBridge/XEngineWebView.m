@@ -220,6 +220,19 @@ initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completi
     }
 }
 
+
+- (void)showErrorAlert:(NSString *)message
+{
+    UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:@"" message:[NSString stringWithFormat:@"%@",message] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [errorAlert addAction:sureAction];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:errorAlert animated:YES completion:^{
+        
+    }];
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(dialogType==1 && alertHandler){
@@ -256,10 +269,11 @@ initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completi
 {
     NSArray *nameStr=[XEngineJSBUtil parseNamespace:[method stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
 
-    id JavascriptInterfaceObject=javaScriptNamespaceInterfaces[nameStr[0]];
+    id JavascriptInterfaceObject = javaScriptNamespaceInterfaces[nameStr[0]];
     NSString *error=[NSString stringWithFormat:@"Error! \n Method %@ is not invoked, since there is not a implementation for it",method];
     NSMutableDictionary*result =[NSMutableDictionary dictionaryWithDictionary:@{@"code":@-1,@"data":@""}];
     if(!JavascriptInterfaceObject){
+        [self showErrorAlert:[NSString stringWithFormat:@"Js bridge  called, but can't find %@ , please check your code!",@"nameSpace"]];
         NSLog(@"Js bridge  called, but can't find a corresponded JavascriptObject , please check your code!");
     }else{
         method=nameStr[1];
@@ -328,6 +342,8 @@ initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completi
                 [self evaluateJavaScript :js completionHandler:nil];
             }
             NSLog(@"%@",error);
+            
+            [self showErrorAlert:[NSString stringWithFormat:@"%@方法没找到",method]];
         }while (0);
     }
     return [XEngineJSBUtil objToJsonString:result];
